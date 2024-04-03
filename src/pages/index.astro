@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Work from "../components/work.astro";
+---
+
+<Layout title="Martin Aguayo" />
+<div class="overflow-hidden">
+  <!-- NavBar -->
+  <div class="w-full top-0 h-7 bg-none flex justify-end pr-16 gap-x-4">
+    <div>Icono 1</div>
+    <div>icono 2</div>
+  </div>
+
+  <!-- Main -->
+  <div class="w-full h-full flex gap-x-8 max-h-max">
+    <!-- Sidebar -->
+
+    <div class="hidden md:block">
+      <div class="pl-16 m-8">
+        <ul class="space-y-12 cursor-pointer">
+          <li>
+            <a href="/" class="space-y-1.5">
+              <img src="/projects.png" alt="Work" class="h-12 w-12 m-auto" />
+              <h2
+                class="text-sm text-center hover:bg-blue-900 hover:text-white"
+              >
+                Works
+              </h2>
+            </a>
+          </li>
+          <li>
+            <a href="/" class="space-y-1.5">
+              <img src="/work.png" alt="Work" class="h-12 w-12 m-auto" />
+              <h2
+                class="text-sm text-center hover:bg-blue-900 hover:text-white"
+              >
+                Skills
+              </h2>
+            </a>
+          </li>
+          <li>
+            <a href="/" class="space-y-1.5">
+              <img src="/about-w98.png" alt="Work" class="h-12 w-12 m-auto" />
+              <h2
+                class="text-sm text-center hover:bg-blue-900 hover:text-white"
+              >
+                About me
+              </h2>
+            </a>
+          </li>
+          <li>
+            <a href="/" class="space-y-1.5">
+              <img src="/contact-w98.png" alt="Work" class="h-12 w-12 m-auto" />
+              <h2
+                class="text-sm text-center hover:bg-blue-900 hover:text-white"
+              >
+                Contact
+              </h2>
+            </a>
+          </li>
+          <li>
+            <a href="/" class="space-y-1.5">
+              <img src="/cv-w98.png" alt="Work" class="h-12 w-12 m-auto" />
+              <h2
+                class="text-sm text-center hover:bg-blue-900 hover:text-white"
+              >
+                CV
+              </h2>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div
+      class="bg-blue-900 h-[90%] w-[90%] m-7 border-solid border-2 text-white max-w-screen-2xl"
+    >
+      <div>
+        <!-- Works -->
+        <Work />
+        <!-- Skills -->
+
+        <!-- About Me -->
+
+        <!-- Contact -->
+
+        <!--  -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
