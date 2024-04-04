@@ -1,9 +1,38 @@
-<div>
+---
+import { Image } from "astro:assets";
+---
+
+<div
+  id="container-projects"
+  class="bg-blue-900 h-[90%] w-[90%] m-7 border-solid border-2 text-white max-w-screen-2xl"
+>
   <div class="flex">
     <h2 class="text-xs ml-2 items-center flex">Works</h2>
-    <div class="flex ml-auto mr-2 gap-x-3">
-      <a>?</a>
-      <a>X</a>
+    <div class="flex ml-auto mr-0.5 cursor-pointer items-center">
+      <button
+        id="btnQuestion"
+        class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
+      >
+        <Image
+          src="/question-icon.png"
+          alt="Question Icon"
+          width="50"
+          height="50"
+          loading="lazy"
+        /></button
+      >
+      <button
+        id="btnClose"
+        class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
+      >
+        <Image
+          src="/close-icon.png"
+          alt="Close Icon"
+          width="50"
+          height="50"
+          loading="lazy"
+        />
+      </button>
     </div>
   </div>
   <div
@@ -17,7 +46,17 @@
             <h2 class="text- font-serif font-bold">Works Projects Recent</h2>
             <div class="flex gap-x-6 cursor-grab ml-3">
               <div
-                class="relative scale-90 hover:scale-110 transition shadow-md"
+                id=""
+                class="relative scale-90 hover:scale-110 transition shadow-md project"
+              >
+                <img class="h-20 w-20" src="/folder-work.png" />
+                <img
+                  class="h-8 w-8 absolute top-3 left-0 right-0 bottom-0 m-auto project"
+                  src="/book.png"
+                />
+              </div>
+              <div
+                class="relative scale-90 hover:scale-110 transition shadow-md project"
               >
                 <img class="h-20 w-20" src="/folder-work.png" />
                 <img
@@ -26,16 +65,7 @@
                 />
               </div>
               <div
-                class="relative scale-90 hover:scale-110 transition shadow-md"
-              >
-                <img class="h-20 w-20" src="/folder-work.png" />
-                <img
-                  class="h-8 w-8 absolute top-3 left-0 right-0 bottom-0 m-auto"
-                  src="/book.png"
-                />
-              </div>
-              <div
-                class="relative scale-90 hover:scale-110 transition shadow-md"
+                class="relative scale-90 hover:scale-110 transition shadow-md project"
               >
                 <img class="h-20 w-20" src="/folder-work.png" />
                 <img
@@ -52,16 +82,56 @@
           <div class="h-3/5 bg-gradient-to-b from-emerald-200 to-pink-200">
           </div>
           <div class="bg-chessboard bg-bottom bg-cover h-[500px] w-full">
+            <section
+              id="dialog"
+              class="absolute top-2 right-0 left-0 bottom-0 m-auto w-[90%] bg-sky-200 h-[90%] border border-solid border-white"
+            >
+              <div
+                class="hidden md:flex items-center border p-4 border-solid border-[silver] h-0 bg-[#008080]"
+              >
+                <span>Project Name</span>
+                <div class="flex ml-auto -mr-3.5 cursor-pointer">
+                  <button
+                    id="btnMaximize"
+                    class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
+                  >
+                    <Image
+                      src="/maximize-icon.png"
+                      alt="Question Icon"
+                      width="50"
+                      height="50"
+                      loading="lazy"
+                    /></button
+                  >
+                  <button
+                    id="btnCloseProject"
+                    class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
+                  >
+                    <Image
+                      src="/close-icon.png"
+                      alt="Close Icon"
+                      width="50"
+                      height="50"
+                      loading="lazy"
+                    />
+                  </button>
+                </div>
+              </div>
+              <article></article>
+            </section>
             <div class="hidden md:flex flex-col items-center">
               <!-- Navigations Tips -->
               <div
+                id="navigationsTips"
                 class="bg-teal-600 border border-solid flex flex-col mx-auto rounded-sm shadow-md"
               >
                 <div class="flex items-center">
                   <p class="text-xs ml-2 text-start text-white">
                     Some navigations tips
                   </p>
-                  <a role="button" class="ml-auto mr-2">X</a>
+                  <a id="closeNavigationTips" role="button" class="ml-auto mr-2"
+                    >X</a
+                  >
                 </div>
                 <div class="bg-[silver] border-solid p-3 text-sm flex flex-col">
                   <div class="flex gap-10 items-center justify-center">
@@ -73,6 +143,7 @@
                   </div>
                   <div class="mx-auto mt-6">
                     <button
+                      id="btnGoIt"
                       class="w-auto appearance-none border-[2px] border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] px-2 py-1 leading-[20px] tracking-wider text-black"
                       >Go It!</button
                     >
@@ -86,3 +157,72 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var btnQuestion = document.getElementById("btnQuestion");
+    var btnClose = document.getElementById("btnClose");
+    var btnGoIt = document.getElementById("btnGoIt");
+    var btnCloseProject = document.getElementById("btnCloseProject");
+    var btnMaximize = document.getElementById("btnMaximize");
+    var dialog = document.getElementById("dialog");
+
+    var closeNavigationTips = document.getElementById("closeNavigationTips");
+    closeNavigationTips?.addEventListener("click", function (event) {
+      event.preventDefault();
+      var navigationsTipsDiv = document.getElementById("navigationsTips");
+      if (navigationsTipsDiv) {
+        navigationsTipsDiv.style.display = "none";
+      }
+    });
+
+    btnGoIt?.addEventListener("click", function (event) {
+      event.preventDefault();
+      var navigationsTipsDiv = document.getElementById("navigationsTips");
+      if (navigationsTipsDiv) {
+        navigationsTipsDiv.style.display = "none";
+      }
+    });
+
+    btnCloseProject?.addEventListener("click", function (event) {
+      event.preventDefault();
+      dialog ? (dialog.style.display = "none") : "";
+    });
+
+    btnQuestion?.addEventListener("click", function (event) {
+      event.preventDefault();
+    });
+    btnClose?.addEventListener("click", function (event) {
+      event.preventDefault();
+      var containerProjects = document.getElementById("container-projects");
+      containerProjects ? containerProjects.remove() : "";
+    });
+
+    if (dialog) {
+      dialog.style.display = "none";
+    }
+
+    var projectElements = document.querySelectorAll(".project");
+    projectElements.forEach(function (project) {
+      project.addEventListener("click", function (event) {
+        event.preventDefault();
+        // Obtener el contenido correspondiente al proyecto
+        var projectName = project.textContent;
+        var projectContent = "Contenido del proyecto: " + projectName;
+        // Mostrar el contenido en el artículo dentro del diálogo
+        var article = dialog?.querySelector("article");
+        if (article) {
+          article.textContent = projectContent;
+        }
+        // Mostrar el diálogo y ocultar las instrucciones de navegación
+        if (dialog) {
+          var navigationsTipsDiv = document.getElementById("navigationsTips");
+          if (navigationsTipsDiv) {
+            navigationsTipsDiv.style.display = "none";
+          }
+          dialog.style.display = "block";
+        }
+      });
+    });
+  });
+</script>
