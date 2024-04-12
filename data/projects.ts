@@ -1,4 +1,5 @@
-export const projects = [
+
+export const projectsWork = [
   {
     id: '1',
     name: 'Trello Clone',

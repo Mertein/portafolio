@@ -1,14 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import { projects } from "../../data/projects";
+import { projectsWork } from "../../data/projects";
+import ProjectsSection from "./project-section.astro";
 ---
 
 <div
-  id="container-projects"
-  class="bg-blue-900 h-[90%] w-[90%] m-7 border-solid border-2 text-white max-w-screen-2xl"
+  id="container-projects "
+  class="bg-blue-900 h-[100%] w-[90%] m-7 border-solid border-2 text-white max-w-screen-2 xl"
 >
   <div class="flex">
-    <h2 class="text-xs ml-2 items-center flex">Works</h2>
+    <h2 class="text-xs ml-2 items-center flex">Work</h2>
     <div class="flex ml-auto mr-0.5 cursor-pointer items-center">
       <button
         id="btnQuestion"
@@ -39,29 +40,26 @@ import { projects } from "../../data/projects";
   <div
     class="h-full p-3 pr-4 pb-8 max-sm:pb-10 bg-[silver] border border-solid shadow-md border-black"
   >
-    <div class="border-2 border-solid shadow-md border-black bg-white">
+    <div class="border-2 border-solid shadow-md border-black bg-white h-[94%]">
       <div class="flex flex-row h-full w-full overlof-whidden">
         <!-- Left Side Folders -->
+
         <div class="flex flex-col gap-y-8 ml-4 mt-4 text-black w-[40%]">
-          <div class="flex flex-col gap-y-1">
-            <h2 class="text- font-serif font-bold">Works Projects Recent</h2>
-            <div class="flex gap-x-6 cursor-grab ml-3">
-              {
-                projects.map((project) => (
-                  <div
-                    id={project.id}
-                    class="relative scale-90 hover:scale-110 transition shadow-md project"
-                  >
-                    <img class="h-20 w-20" src="/folder-work.png" />
-                    <img
-                      class="h-8 w-8 absolute top-3 left-0 right-0 bottom-0 m-auto project"
-                      src={project.images[0]}
-                    />
-                  </div>
-                ))
-              }
-            </div>
-          </div>
+          <ProjectsSection
+            folderImage="/folder-work.png"
+            projects={projectsWork}
+            label={"Work Projects Recent"}
+          />
+          <ProjectsSection
+            folderImage="/folder-personal.png"
+            projects={projectsWork}
+            label={"Personal projects"}
+          />
+          <ProjectsSection
+            projects={projectsWork}
+            label={"Other Project"}
+            folderImage="/folder-other.png"
+          />
         </div>
 
         <!-- Right Side Content -->
@@ -71,7 +69,7 @@ import { projects } from "../../data/projects";
           <div class="bg-chessboard bg-bottom bg-cover h-[500px] w-full">
             <section
               id="dialog"
-              class="absolute top-2 right-0 left-0 bottom-0 m-auto w-[90%] bg-sky-200 h-[90%] border border-solid border-white"
+              class="absolute top-0 right-0 left-0 bottom-9 m-auto xl:w-[62%] w-[90%] bg-sky-200 h-[88%] border border-solid border-white"
             >
               <div
                 class="hidden md:flex items-center border p-4 border-solid border-[silver] h-0 bg-[#008080]"
@@ -139,7 +137,47 @@ import { projects } from "../../data/projects";
                       </button>
                     </div>
                   </div>
-                  sd
+                  <div
+                    class="hidden md:flex flex-col m-4 text-black overflow-y-auto"
+                  >
+                    <div class="flex text-sm items-center">
+                      <button
+                        class="rounded-md px-4 py-1.5 hover:scale-105 bg-[#d8d8d8]"
+                      >
+                        Overview
+                      </button>
+                      <button
+                        class="rounded-md px-4 py-1.5 hover:scale-105 bg-[#d8d8d8]"
+                      >
+                        What I Did
+                      </button>
+                    </div>
+                    <div
+                      class="text-xs text-wrap flex flex-col gap-y-8 bg-[#d8d8d8] p-3 rounded-md shadow-md"
+                    >
+                      <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ad possimus tempora molestias quibusdam, tenetur at
+                        doloribus dolores, consequatur natus modi quis
+                        similique, quo optio expedita quos neque dolorum
+                        quisquam quidem!
+                      </div>
+                      <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quasi quidem facere, fuga, sint sed ratione ex
+                        dignissimos sequi itaque vel praesentium quas placeat
+                        veritatis neque ut, dolor illo repudiandae delectus?
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="text-xs relative mt-10 w-auto appearance-none border-t-[2px] border-r-[2px] border-b-[2px] border-l-[2px] border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] px-2 py-1 leading-[20px] tracking-wider text-black"
+                  >
+                    <a href="#">Visit</a>
+                    <span
+                      class="pointer-events-none absolute -inset-[2px] border-[1px] border-solid border-black"
+                    ></span>
+                  </button>
                 </div>
               </div>
             </section>
@@ -183,7 +221,7 @@ import { projects } from "../../data/projects";
 </div>
 
 <script>
-  import { projects } from "../../data/projects";
+  import { projectsWork } from "../../data/projects";
   document.addEventListener("DOMContentLoaded", function () {
     let btnQuestion = document.getElementById("btnQuestion");
     let btnClose = document.getElementById("btnClose");
@@ -226,94 +264,5 @@ import { projects } from "../../data/projects";
     if (dialog) {
       dialog.style.display = "none";
     }
-    let projectElements = document.querySelectorAll(".project");
-    projectElements.forEach(function (project) {
-      project.addEventListener("click", function (event) {
-        event.preventDefault();
-        let projectId = project.id;
-
-        let selectedProject = projects.find(
-          (project) => project.id === projectId
-        );
-        let projectNameSpan = document.querySelector("#dialog span");
-        let projectName = selectedProject?.name;
-        if (projectNameSpan) {
-          projectNameSpan.textContent = projectName as string;
-        }
-        // Mostrar el contenido en el artículo dentro del diálogo
-        // let article = dialog?.querySelector("article");
-        // let articleImg = dialog?.querySelector("article");
-        // if (article) {
-        //   articleImg ? (articleImg.src = selectedProject?.images) : "";
-        //   console.log(articleImg);
-        // }
-
-        // Mostrar laS imagenes del proyecto
-        let projectImage = document.getElementById(
-          "projectImage"
-        ) as HTMLImageElement;
-        if (projectImage) {
-          let previousImg = document.getElementById(
-            "previousImg"
-          ) as HTMLImageElement;
-          let nextImg = document.getElementById("nextImg") as HTMLImageElement;
-          let prevButton = document.getElementById("prevImage");
-          let nextButton = document.getElementById("nextImage");
-          previousImg.src = "/disabled-arrow-key.png";
-          prevButton?.setAttribute("disabled", "true");
-          nextImg.src = "/arrow-key.png";
-          nextButton?.removeAttribute("disabled");
-          projectImage.src = selectedProject?.images?.[0] as string;
-
-          let currentImageIndex = 0;
-          const totalImages = selectedProject?.images?.length;
-
-          const showImage = (index: number) => {
-            projectImage.src = selectedProject?.images[index] as string;
-          };
-
-          const showPrevImage = () => {
-            if (currentImageIndex > 0) {
-              currentImageIndex--;
-              showImage(currentImageIndex);
-
-              if (currentImageIndex === 0) {
-                previousImg.src = "/disabled-arrow-key.png";
-                prevButton?.setAttribute("disabled", "true");
-                nextButton?.removeAttribute("disabled");
-                nextImg.src = "/arrow-key.png";
-              }
-            }
-          };
-
-          const showNextImage = () => {
-            if (totalImages && currentImageIndex < totalImages - 1) {
-              currentImageIndex++;
-              showImage(currentImageIndex);
-              previousImg.src = "/arrow-key.png";
-              prevButton?.removeAttribute("disabled");
-              nextButton?.removeAttribute("disabled");
-              nextImg.src = "/arrow-key.png";
-            }
-            if (totalImages && currentImageIndex === totalImages - 1) {
-              nextButton?.setAttribute("disabled", "true");
-              nextImg.src = "/disabled-arrow-key.png";
-            }
-          };
-
-          prevButton?.addEventListener("click", showPrevImage);
-          nextButton?.addEventListener("click", showNextImage);
-        }
-
-        // Mostrar el diálogo y ocultar las instrucciones de navegación
-        if (dialog) {
-          let navigationsTipsDiv = document.getElementById("navigationsTips");
-          if (navigationsTipsDiv) {
-            navigationsTipsDiv.style.display = "none";
-          }
-          dialog.style.display = "block";
-        }
-      });
-    });
   });
 </script>

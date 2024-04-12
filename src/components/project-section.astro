@@ -1,0 +1,114 @@
+---
+import ProjectItems from "./project-items.astro";
+import type { Projects } from "../../types/index.ts";
+
+interface Props {
+  projects: Projects[];
+  label: string;
+  folderImage: string;
+}
+
+const { projects, label, folderImage } = Astro.props;
+---
+
+<div class="flex flex-col gap-y-1">
+  <h2 class="text-sm font-serif font-bold">{label}</h2>
+  <div class="flex gap-x-6 cursor-grab ml-3">
+    {
+      projects.map((project) => (
+        <ProjectItems
+          id={project.id}
+          key={project.id}
+          images={project.images[0]}
+          folderImage={folderImage}
+          title={project.name}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  let projectElements = document.querySelectorAll(".project");
+  projectElements.forEach(function (project) {
+    project.addEventListener("click", function (event) {
+      event.preventDefault();
+      let projectId = project.id;
+
+      let selectedProject = projectsWork.find(
+        (project) => project.id === projectId
+      );
+      let projectNameSpan = document.querySelector("#dialog span");
+      let projectName = selectedProject?.name;
+      if (projectNameSpan) {
+        projectNameSpan.textContent = projectName as string;
+      }
+      // Mostrar el contenido en el artículo dentro del diálogo
+      // let article = dialog?.querySelector("article");
+      // let articleImg = dialog?.querySelector("article");
+      // if (article) {
+      //   articleImg ? (articleImg.src = selectedProject?.images) : "";
+      //   console.log(articleImg);
+      // }
+
+      // Mostrar laS imagenes del proyecto
+      let projectImage = document.getElementById(
+        "projectImage"
+      ) as HTMLImageElement;
+      if (projectImage) {
+        let previousImg = document.getElementById(
+          "previousImg"
+        ) as HTMLImageElement;
+        let nextImg = document.getElementById("nextImg") as HTMLImageElement;
+        let prevButton = document.getElementById("prevImage");
+        let nextButton = document.getElementById("nextImage");
+        previousImg.src = "/disabled-arrow-key.png";
+        prevButton?.setAttribute("disabled", "true");
+        nextImg.src = "/arrow-key.png";
+        nextButton?.removeAttribute("disabled");
+        projectImage.src = selectedProject?.images?.[0] as string;
+
+        let currentImageIndex = 0;
+        const totalImages = selectedProject?.images?.length;
+
+        const showImage = (index: number) => {
+          projectImage.src = selectedProject?.images[index] as string;
+        };
+
+        const showPrevImage = () => {
+          if (currentImageIndex > 0) {
+            currentImageIndex--;
+            showImage(currentImageIndex);
+
+            if (currentImageIndex === 0) {
+              previousImg.src = "/disabled-arrow-key.png";
+              prevButton?.setAttribute("disabled", "true");
+              nextButton?.removeAttribute("disabled");
+              nextImg.src = "/arrow-key.png";
+            }
+          }
+        };
+
+        const showNextImage = () => {
+          if (totalImages && currentImageIndex < totalImages - 1) {
+            currentImageIndex++;
+            showImage(currentImageIndex);
+            previousImg.src = "/arrow-key.png";
+            prevButton?.removeAttribute("disabled");
+            nextButton?.removeAttribute("disabled");
+            nextImg.src = "/arrow-key.png";
+          }
+          if (totalImages && currentImageIndex === totalImages - 1) {
+            nextButton?.setAttribute("disabled", "true");
+            nextImg.src = "/disabled-arrow-key.png";
+          }
+        };
+
+        prevButton?.addEventListener("click", showPrevImage);
+        nextButton?.addEventListener("click", showNextImage);
+      }
+
+      // Mostrar el diálogo y ocultar las instrucciones de navegación
+    });
+  });
+</script>
