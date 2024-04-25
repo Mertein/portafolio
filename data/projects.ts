@@ -32,5 +32,27 @@ export const projectsWork = [
       'https://via.placeholder.com/400?text=LMS+Platform+Image+3',
     ],
     link: 'https://www.google.com/'
+  },
+  {
+    id: '4',
+    name: 'LMS (Learning Management System) platform',
+    description: 'Courses, Chapters, Payload, managment, User management, Admin Panel, and more..',
+    images: [
+      'https://via.placeholder.com/400?text=LMS+Platform+Image+1',
+      'https://via.placeholder.com/400?text=LMS+Platform+Image+2',
+      'https://via.placeholder.com/400?text=LMS+Platform+Image+3',
+    ],
+    link: 'https://www.google.com/'
+  },
+  {
+    id: '5',
+    name: 'LMS (Learning Management System) platform',
+    description: 'Courses, Chapters, Payload, managment, User management, Admin Panel, and more..',
+    images: [
+      'https://via.placeholder.com/400?text=LMS+Platform+Image+1',
+      'https://via.placeholder.com/400?text=LMS+Platform+Image+2',
+      'https://via.placeholder.com/400?text=LMS+Platform+Image+3',
+    ],
+    link: 'https://www.google.com/'
   }
 ];

@@ -5,12 +5,12 @@ export default {
 		extend: {
 			backgroundImage: {
 				'window-wallpaper': "url('/bg.webp')",
-				'chessboard': "url('/chessboard.png')"
+				'chessboard': "url('/chessboard.png')",
+				'skillsImg' : "url('/skills1.bmp')",
 			},
 			backgroundColor: {
 				'primary': 'rgb(0 128 128 / 1)',
-			}
-			
+			},
 		},
 	},
 	plugins: [],

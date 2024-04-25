@@ -4,16 +4,28 @@ import { Image } from "astro:assets";
 const { images, id, folderImage, title } = Astro.props;
 ---
 
-<div class="flex flex-col h-28 w-[7rem] min-w-[7rem] items-center mt-2">
-  <div id={id} class="relative scale-90 hover:scale-110 transition">
-    <Image src={folderImage} width={104} height={88} alt="folder image" />
+<div class="flex flex-col w-[7rem] min-w-[7rem] items-center mt-2">
+  <div
+    id={id}
+    class="relative scale-90 hover:scale-110 transition project"
+    role="button"
+  >
+    <Image
+      src={folderImage}
+      width={104}
+      height={88}
+      alt="folder image"
+      draggable={false}
+    />
     <Image
       class="absolute top-0 left-0 right-0 bottom-0 m-auto"
       src="/contact-w98.png"
       width={30}
       height={30}
       alt="image project"
+      draggable={false}
     />
+    <img />
   </div>
   <p class="text-sm break-words">{title}</p>
 </div>

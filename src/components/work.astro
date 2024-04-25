@@ -5,8 +5,9 @@ import ProjectsSection from "./project-section.astro";
 ---
 
 <div
-  id="container-projects "
-  class="bg-blue-900 h-[100%] w-[90%] m-7 border-solid border-2 text-white max-w-screen-2 xl"
+  id="container-projects"
+  class="bg-blue-900 h-[100%] w-[90%] m-7 border-solid border-2 text-white max-w-screen-2 component"
+  style="display: none"
 >
   <div class="flex">
     <h2 class="text-xs ml-2 items-center flex">Work</h2>
@@ -41,20 +42,21 @@ import ProjectsSection from "./project-section.astro";
     class="h-full p-3 pr-4 pb-8 max-sm:pb-10 bg-[silver] border border-solid shadow-md border-black"
   >
     <div class="border-2 border-solid shadow-md border-black bg-white h-[94%]">
-      <div class="flex flex-row h-full w-full overlof-whidden">
+      <div class="flex flex-row h-full w-full">
         <!-- Left Side Folders -->
-
         <div class="flex flex-col gap-y-8 ml-4 mt-4 text-black w-[40%]">
           <ProjectsSection
             folderImage="/folder-work.png"
             projects={projectsWork}
             label={"Work Projects Recent"}
           />
+
           <ProjectsSection
             folderImage="/folder-personal.png"
             projects={projectsWork}
             label={"Personal projects"}
           />
+
           <ProjectsSection
             projects={projectsWork}
             label={"Other Project"}
@@ -138,35 +140,34 @@ import ProjectsSection from "./project-section.astro";
                     </div>
                   </div>
                   <div
-                    class="hidden md:flex flex-col m-4 text-black overflow-y-auto"
+                    class="hidden md:flex flex-col m-4 text-black overflow-y-auto w-[85%] h-[30%]"
                   >
                     <div class="flex text-sm items-center">
                       <button
-                        class="rounded-md px-4 py-1.5 hover:scale-105 bg-[#d8d8d8]"
+                        id="btnOverview"
+                        class="rounded-md !rounded-b-none px-4 py-1.5 hover:scale-105 bg-[#d8d8d8]"
                       >
                         Overview
                       </button>
                       <button
-                        class="rounded-md px-4 py-1.5 hover:scale-105 bg-[#d8d8d8]"
+                        id="btnWhatIDid"
+                        class="rounded-md !rounded-b-none px-4 py-1.5 hover:scale-105 bg-[#d8d8d8]"
                       >
                         What I Did
                       </button>
                     </div>
                     <div
-                      class="text-xs text-wrap flex flex-col gap-y-8 bg-[#d8d8d8] p-3 rounded-md shadow-md"
+                      class="text-xs text-wrap flex flex-col gap-y-8 bg-[#d8d8d8] p-3 rounded-md !rounded-t-none shadow-md"
                     >
-                      <div>
+                      <div id="overviewContent" style="display: block">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Ad possimus tempora molestias quibusdam, tenetur at
                         doloribus dolores, consequatur natus modi quis
                         similique, quo optio expedita quos neque dolorum
                         quisquam quidem!
                       </div>
-                      <div>
+                      <div id="whatIDidContent" style="display: none">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quasi quidem facere, fuga, sint sed ratione ex
-                        dignissimos sequi itaque vel praesentium quas placeat
-                        veritatis neque ut, dolor illo repudiandae delectus?
                       </div>
                     </div>
                   </div>
@@ -229,6 +230,8 @@ import ProjectsSection from "./project-section.astro";
     let btnCloseProject = document.getElementById("btnCloseProject");
     let btnMaximize = document.getElementById("btnMaximize");
     let dialog = document.getElementById("dialog");
+    let btnOverview = document.getElementById("btnOverview");
+    let btnWhatIDid = document.getElementById("btnWhatIDid");
 
     let closeNavigationTips = document.getElementById("closeNavigationTips");
     closeNavigationTips?.addEventListener("click", function (event) {
@@ -261,8 +264,150 @@ import ProjectsSection from "./project-section.astro";
       containerProjects ? containerProjects.remove() : "";
     });
 
+    btnOverview?.addEventListener("click", function (event) {
+      event.preventDefault();
+      let overviewContent = document.getElementById("overviewContent");
+      let whatIDidContent = document.getElementById("whatIDidContent");
+      if (overviewContent && whatIDidContent) {
+        overviewContent.style.display = "block";
+        btnWhatIDid ? (btnWhatIDid.style.backgroundColor = "#c0c0c0") : "";
+        btnOverview ? (btnOverview.style.backgroundColor = "#d8d8d8") : "";
+        whatIDidContent.style.display = "none";
+      }
+    });
+
+    btnWhatIDid?.addEventListener("click", function (event) {
+      event.preventDefault();
+      let overviewContent = document.getElementById("overviewContent");
+      let whatIDidContent = document.getElementById("whatIDidContent");
+      if (overviewContent && whatIDidContent) {
+        whatIDidContent.style.display = "block";
+        btnOverview ? (btnOverview.style.backgroundColor = "#c0c0c0") : "";
+        btnWhatIDid ? (btnWhatIDid.style.backgroundColor = "#d8d8d8") : "";
+        overviewContent.style.display = "none";
+      }
+    });
+
     if (dialog) {
       dialog.style.display = "none";
     }
+
+    let projectElements = document.querySelectorAll(`.project`);
+
+    projectElements.forEach(function (project) {
+      project.addEventListener("click", function (event) {
+        event.preventDefault();
+        let projectId = project.id;
+        let selectedProject = projectsWork.find(
+          (project) => project.id === projectId
+        );
+        let projectNameSpan = document.querySelector("#dialog span");
+        let projectName = selectedProject?.name;
+        if (projectNameSpan) {
+          projectNameSpan.textContent = projectName as string;
+        }
+
+        let navigationsTipsDiv = document.getElementById("navigationsTips");
+        if (dialog) {
+          dialog.style.display = "block";
+          if (navigationsTipsDiv) {
+            navigationsTipsDiv.style.display = "none";
+          }
+        }
+
+        // Mostrar laS imagenes del proyecto
+        let projectImage = document.getElementById(
+          "projectImage"
+        ) as HTMLImageElement;
+        if (projectImage) {
+          let previousImg = document.getElementById(
+            "previousImg"
+          ) as HTMLImageElement;
+          let nextImg = document.getElementById("nextImg") as HTMLImageElement;
+          let prevButton = document.getElementById("prevImage");
+          let nextButton = document.getElementById("nextImage");
+          previousImg.src = "/disabled-arrow-key.png";
+          prevButton?.setAttribute("disabled", "true");
+          nextImg.src = "/arrow-key.png";
+          nextButton?.removeAttribute("disabled");
+          projectImage.src = selectedProject?.images?.[0] as string;
+
+          let currentImageIndex = 0;
+          const totalImages = selectedProject?.images?.length;
+
+          const showImage = (index: number) => {
+            projectImage.src = selectedProject?.images[index] as string;
+          };
+
+          const showPrevImage = () => {
+            if (currentImageIndex > 0) {
+              currentImageIndex--;
+              showImage(currentImageIndex);
+
+              if (currentImageIndex === 0) {
+                previousImg.src = "/disabled-arrow-key.png";
+                prevButton?.setAttribute("disabled", "true");
+                nextButton?.removeAttribute("disabled");
+                nextImg.src = "/arrow-key.png";
+              }
+            }
+          };
+
+          const showNextImage = () => {
+            if (totalImages && currentImageIndex < totalImages - 1) {
+              currentImageIndex++;
+              showImage(currentImageIndex);
+              previousImg.src = "/arrow-key.png";
+              prevButton?.removeAttribute("disabled");
+              nextButton?.removeAttribute("disabled");
+              nextImg.src = "/arrow-key.png";
+            }
+            if (totalImages && currentImageIndex === totalImages - 1) {
+              nextButton?.setAttribute("disabled", "true");
+              nextImg.src = "/disabled-arrow-key.png";
+            }
+          };
+
+          prevButton?.addEventListener("click", showPrevImage);
+          nextButton?.addEventListener("click", showNextImage);
+        }
+      });
+    });
+
+    function initializeSlider(selector: string) {
+      const slider = document.querySelectorAll(".items");
+      slider.forEach((slider: any) => {
+        let isDown = false;
+        let startX: number;
+        let scrollLeft: number;
+        slider.addEventListener("mousedown", (e: any) => {
+          isDown = true;
+          slider.classList.add("active");
+          startX = e.pageX - slider.offsetLeft;
+          scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener("mouseleave", () => {
+          isDown = false;
+          slider.classList.remove("active");
+        });
+
+        slider.addEventListener("mouseup", () => {
+          isDown = false;
+          slider.classList.remove("active");
+        });
+
+        slider.addEventListener("mousemove", (e: any) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - slider.offsetLeft;
+          const walk = x - startX;
+          slider.scrollLeft = scrollLeft - walk;
+        });
+      });
+    }
+
+    // Llamar a la función para inicializar el slider
+    initializeSlider("items");
   });
 </script>

@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Work from "../components/work.astro";
+import Skills from "../components/skills.astro";
 ---
 
 <Layout title="Martin Aguayo" />
@@ -18,8 +19,8 @@ import Work from "../components/work.astro";
     <div class="hidden md:block">
       <div class="pl-16 m-8">
         <ul class="space-y-12 cursor-pointer">
-          <li>
-            <a href="/" class="space-y-1.5">
+          <li id="section">
+            <a href="#/works" class="space-y-1.5">
               <img src="/projects.png" alt="Work" class="h-12 w-12 m-auto" />
               <h2
                 class="text-sm text-center hover:bg-blue-900 hover:text-white"
@@ -28,8 +29,8 @@ import Work from "../components/work.astro";
               </h2>
             </a>
           </li>
-          <li>
-            <a href="/" class="space-y-1.5">
+          <li id="section">
+            <a href="#/skills" class="space-y-1.5">
               <img src="/work.png" alt="Work" class="h-12 w-12 m-auto" />
               <h2
                 class="text-sm text-center hover:bg-blue-900 hover:text-white"
@@ -38,7 +39,7 @@ import Work from "../components/work.astro";
               </h2>
             </a>
           </li>
-          <li>
+          <li id="section">
             <a href="/" class="space-y-1.5">
               <img src="/about-w98.png" alt="Work" class="h-12 w-12 m-auto" />
               <h2
@@ -48,7 +49,7 @@ import Work from "../components/work.astro";
               </h2>
             </a>
           </li>
-          <li>
+          <li class="section">
             <a href="/" class="space-y-1.5">
               <img src="/contact-w98.png" alt="Work" class="h-12 w-12 m-auto" />
               <h2
@@ -58,7 +59,7 @@ import Work from "../components/work.astro";
               </h2>
             </a>
           </li>
-          <li>
+          <li class="section">
             <a href="/" class="space-y-1.5">
               <img src="/cv-w98.png" alt="Work" class="h-12 w-12 m-auto" />
               <h2
@@ -76,7 +77,9 @@ import Work from "../components/work.astro";
 
     <!-- Works -->
     <Work />
+
     <!-- Skills -->
+    <Skills />
 
     <!-- About Me -->
 
@@ -87,3 +90,33 @@ import Work from "../components/work.astro";
 </div>
 
 <!-- Footer -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("#section a");
+    const url = window.location.hash;
+    if (url === "") {
+      document.getElementById("container-projects").style.display = "block";
+    }
+
+    sections.forEach((section) => {
+      section.addEventListener("click", function (event) {
+        event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+
+        const href = section.getAttribute("href"); // Obtiene la ruta del enlace
+
+        // Oculta todos los componentes
+        document.querySelectorAll(".component").forEach((component) => {
+          component.style.display = "none";
+        });
+        // Muestra el componente correspondiente según la ruta del enlace
+        if (href === "#/works") {
+          document.getElementById("container-projects").style.display = "block";
+        } else if (href === "#/skills") {
+          document.getElementById("skills").style.display = "block";
+        }
+        // Agrega más condiciones según las rutas de los enlaces si es necesario
+      });
+    });
+  });
+</script>

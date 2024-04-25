@@ -1,0 +1,642 @@
+---
+import { Image } from "astro:assets";
+import vercelImg from "../../public/svg/vercel.svg";
+import mercadoPago from "../../public/svg/mercado-pago.svg";
+import stripe from "../../public/svg/stripe.svg";
+import datagrip from "../../public/svg/datagrip.svg";
+import lucidchart from "../../public/svg/lucidchart.svg";
+import oracle from "../../public/svg/oracle.svg";
+import visualParadimg from "../../public/svg/visual-paradigm.svg";
+import supabase from "../../public/svg/supabase.svg";
+import uml from "../../public/svg/uml.svg";
+import docker from "../../public/svg/docker.svg";
+---
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+  .font-pressStart2P {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+</style>
+
+<div
+  id="skills"
+  class="bg-blue-900 h-[100%] w-[90%] m-7 border-solid border-2 text-white max-w-screen-2 component"
+  style="display: none"
+>
+  <div class="flex">
+    <h2 class="text-xs ml-2 items-center flex">Skills</h2>
+    <div class="flex ml-auto mr-0.5 cursor-pointer items-center">
+      <button
+        id="btnQuestion"
+        class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
+      >
+        <Image
+          src="/question-icon.png"
+          alt="Question Icon"
+          width="50"
+          height="50"
+          loading="lazy"
+        /></button
+      >
+      <button
+        id="btnClose"
+        class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
+      >
+        <Image
+          src="/close-icon.png"
+          alt="Close Icon"
+          width="50"
+          height="50"
+          loading="lazy"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    class="h-full p-3 pr-4 pb-8 max-sm:pb-10 bg-[silver] border border-solid shadow-md border-black"
+  >
+    <div
+      class="border-2 border-solid shadow-md border-black bg-white h-[94%] overflow-y-scroll"
+    >
+      <!-- Content -->
+      <div
+        class="m-0 h-full border border-solid border-t-white border-l-white border-r-black border-b-black p-0"
+      >
+        <div
+          class="m-0 h-full border border-solid border-t-[#dfdfdf] border-l-[#dfdfdf] border-r-[#7f7f7f] border-b-[#7f7f7f] p-0"
+        >
+          <div
+            class="m-0 h-full border-2 border-solid border-t-[#404040] border-l-[#404040] border-r-[#f4f4f4] border-b-[#f4f4f4] bg-w98white"
+          >
+            <div class="relative h-full w-full overflow-auto bg-w98white">
+              <!-- Current Stack -->
+              <div
+                class="card-container flex items-center justify-center overflow-hidden p-0 pt-[20px] shadow-[inset_0px_-22px_32px_-20px_rgba(0,0,0,0.20)]"
+                style="background: linear-gradient(90deg, rgba(243, 210, 230, 0.25) 0%, rgba(247, 182, 221, 0.25) 36%, rgba(243, 142, 203, 0.25) 100%);"
+              >
+                <div class="relative">
+                  <div class="absolute top-0 bottom-0 left-0 right-0 m-auto">
+                    <div
+                      class="flex h-full flex-col items-center justify-center font-pressStart2P text-3xl text-black max-lg:text-xl"
+                    >
+                      <p
+                        style="transform:
+                        translateX(-646.364px)
+                        translateY(0px)
+                        translateZ(0px);
+                        "
+                      >
+                        Current
+                      </p>
+                      <p
+                        style="transform: translateX(646.364px) translateY(0px) translateZ(0px);"
+                      >
+                        Stack
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="card flex h-[430px] w-[600px] items-center justify-center rounded-sm bg-w98white leading-5 text-black shadow-lg max-xl:w-[450px] max-lg:m-auto max-lg:w-[95%]"
+                    style='background: url("/skills1.bmp"); transform: translateY(50px) rotate(-2deg) translateZ(0px);'
+                  >
+                    <div
+                      class="m-auto flex h-[94%] w-[94%] overflow-y-auto bg-w98white p-5 dark:bg-[#1E1E1E] dark:text-white"
+                    >
+                      <div>
+                        <p class="mb-6">
+                          This is my current tech stack, in which I feel most
+                          comfortable and where I'm trying to specialize right
+                          now.
+                          <p
+                            class="flex flex-wrap justify-center gap-x-12 gap-y-2 font-bold max-md:gap-x-6"
+                          >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                                alt="React"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              React</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                                alt="Nextjs"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              NextJs</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                                alt="Javascript"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Javascript</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                                alt="Typescript"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Typescript</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                                alt="Html5"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Html5
+                            </span>
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                                alt="Css3"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Css3
+                            </span>
+                            <span>
+                              <Image
+                                src="https://img.jsdelivr.com/github.com/tailwindcss.png"
+                                alt="Tailwindcss"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Tailwindcss
+                            </span>
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                                alt="Git"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Git</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                                alt="Nodejs"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Nodejs</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                                alt="Express"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Express</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                                alt="Mongodb"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Mongodb</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                                alt="Postgresql"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Postgresql</span
+                            >
+                            <span>
+                              <Image
+                                src={vercelImg}
+                                alt="Postgresql"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Vercel</span
+                            >
+                          </p>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Worked With -->
+              <div
+                class="card-container flex items-center justify-center overflow-hidden p-0 pt-[20px] shadow-[inset_0px_-22px_32px_-20px_rgba(0,0,0,0.20)]"
+                style="background: linear-gradient(90deg, rgba(244, 225, 151, 0.25) 0%, rgba(255, 227, 116, 0.25) 36%, rgba(255, 218, 74, 0.25) 100%);"
+              >
+                <div class="relative">
+                  <div class="absolute top-0 bottom-0 left-0 right-0 m-auto">
+                    <div
+                      class="flex h-full flex-col items-center justify-center font-pressStart2P text-3xl text-black max-lg:text-xl"
+                    >
+                      <p
+                        style="transform:
+                      translateX(-646.364px)
+                      translateY(0px)
+                      translateZ(0px);
+                      "
+                      >
+                        Worked
+                      </p>
+                      <p
+                        style="transform: translateX(646.364px) translateY(0px) translateZ(0px);"
+                      >
+                        Stack
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="card flex h-[430px] w-[600px] items-center justify-center rounded-sm bg-w98white leading-5 text-black shadow-lg max-xl:w-[450px] max-lg:m-auto max-lg:w-[95%]"
+                    style='background: url("/skills2.bmp"); transform: translateY(50px) rotate(0deg) translateZ(0px);'
+                  >
+                    <div
+                      class="m-auto flex h-[94%] w-[94%] overflow-y-auto bg-w98white p-5 dark:bg-[#1E1E1E] dark:text-white"
+                    >
+                      <div>
+                        <p class="mb-6">
+                          In addition to the technologies mentioned earlier, I
+                          also have worked and have knowledge at:
+                          <br />
+                          <p
+                            class="flex flex-wrap justify-center gap-x-12 gap-y-2 font-bold max-md:gap-x-6"
+                          >
+                            <span>
+                              <Image
+                                src={docker}
+                                alt="Docker"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Docker
+                            </span>
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                                alt="Java"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Java
+                            </span>
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+                                alt="Php"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Php</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                                alt="Mysql"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Mysql</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/digitalocean/digitalocean-original.svg"
+                                alt="Digital Ocean"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Digital Ocean</span
+                            >
+
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                                alt="Firebase"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Firebase</span
+                            >
+                            <span>
+                              <Image
+                                src={mercadoPago}
+                                alt="Mercadopago"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              MercadoPago
+                            </span>
+                            <span>
+                              <Image
+                                src={stripe}
+                                alt="Stripe"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Stripe
+                            </span>
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+                                alt=" Bootstrap"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Bootstrap
+                            </span>
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"
+                                alt="Gitlab"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Gitlab</span
+                            >
+                            <span>
+                              <Image
+                                src={supabase}
+                                alt="Supabase"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Supabase</span
+                            >
+                            <span>
+                              <Image
+                                src={oracle}
+                                alt="Oracle"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Oracle</span
+                            >
+                            <span>
+                              <Image
+                                src={uml}
+                                alt="UML"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              UML</span
+                            >
+                            <span>
+                              <Image
+                                src={visualParadimg}
+                                alt="Visual Paradigm"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Visual Paradigm</span
+                            >
+                            <span>
+                              <Image
+                                src={lucidchart}
+                                alt="Lucid Chart"
+                                width="30"
+                                height="30"
+                                class="mr-1 inline-block"
+                              />
+                              Lucid Chart</span
+                            >
+                            <span>
+                              <Image
+                                src={datagrip}
+                                alt="Data Grip"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Data Grip</span
+                            >
+                          </p>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tools and More -->
+              <div
+                class="card-container flex items-center justify-center overflow-hidden p-0 pt-[20px] shadow-[inset_0px_-22px_32px_-20px_rgba(0,0,0,0.20)]"
+                style="background: linear-gradient(90deg, rgba(243, 210, 230, 0.25) 0%, rgba(247, 182, 221, 0.25) 36%, rgba(243, 142, 203, 0.25) 100%);"
+              >
+                <div class="relative">
+                  <div class="absolute top-0 bottom-0 left-0 right-0 m-auto">
+                    <div
+                      class="flex h-full flex-col items-center justify-center font-pressStart2P text-3xl text-black max-lg:text-xl"
+                    >
+                      <p
+                        style="transform: translateX(-646.364px) translateY(0px) translateZ(0px);"
+                      >
+                        Tools
+                      </p>
+                      <p
+                        style="transform: translateX(646.364px) translateY(0px) translateZ(0px);"
+                      >
+                        and more
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="card flex h-[430px] w-[600px] items-center justify-center rounded-sm bg-w98white leading-5 text-black shadow-lg max-xl:w-[450px] max-lg:m-auto max-lg:w-[95%]"
+                    style='background: url("/skills3.bmp"); transform: translateY(50px) rotate(0deg) translateZ(0px);'
+                  >
+                    <div
+                      class="m-auto flex h-[94%] w-[94%] overflow-y-auto bg-w98white p-5 dark:bg-[#1E1E1E] dark:text-white"
+                    >
+                      <div>
+                        <p class="mb-6">
+                          This is my current tech stack, in which I feel most
+                          comfortable and where I'm trying to specialize right
+                          now.
+                          <br />
+                          <p
+                            class="flex flex-wrap justify-center gap-x-12 gap-y-2 font-bold max-md:gap-x-6"
+                          >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+                                alt="Figma"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Figma
+                            </span>
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg"
+                                alt="Photoshop"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Photoshop</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                                alt="Git"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Git</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                                alt="Github"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Github</span
+                            >
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"
+                                alt="Gitlab"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Gitlab
+                            </span>
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg"
+                                alt="Bitbucket"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Bitbucket
+                            </span>
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg"
+                                alt="Npm"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Npm
+                            </span>
+                            <span>
+                              <Image
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                                alt="Visual Studio Code"
+                                width="20"
+                                height="20"
+                                class="mr-1 inline-block"
+                              />
+                              Visual Studio Code</span
+                            >
+                          </p>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Work Skills -->
+              <div
+                class="card-container flex items-center justify-center overflow-hidden p-0 pt-[20px] shadow-[inset_0px_-22px_32px_-20px_rgba(0,0,0,0.20)]"
+                style="background: linear-gradient(90deg, rgba(170, 242, 209, 0.25) 0%, rgba(146, 228, 190, 0.25) 36%, rgba(25, 233, 159, 0.25) 100%);"
+              >
+                <div class="relative">
+                  <div class="absolute top-0 bottom-0 left-0 right-0 m-auto">
+                    <div
+                      class="flex h-full flex-col items-center justify-center font-pressStart2P text-3xl text-black max-lg:text-xl"
+                    >
+                      <p
+                        style="transform: translateX(-646.364px) translateY(0px) translateZ(0px);"
+                      >
+                        Work
+                      </p>
+                      <p
+                        style="transform: translateX(646.364px) translateY(0px) translateZ(0px);"
+                      >
+                        Skills
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="card flex h-[430px] w-[600px] items-center justify-center rounded-sm bg-w98white leading-5 text-black shadow-lg max-xl:w-[450px] max-lg:m-auto max-lg:w-[95%]"
+                    style='background: url("/skills4.bmp"); transform: translateY(50px) rotate(0deg) translateZ(0px);'
+                  >
+                    <div
+                      class="m-auto flex h-[94%] w-[94%] overflow-y-auto bg-w98white p-5 dark:bg-[#1E1E1E] dark:text-white"
+                    >
+                      <div>
+                        <p class="mb-6">
+                          Work-related concepts that can define my experience
+                          and the path I am attempting to follow and improve it
+                          <p class="text-center font-bold">
+                            Self-sufficiency · Good practices · Friendly ·
+                            Creativity · Teamwork · Specialization ·
+                            Multitasking · Focus ability · Organization · Time
+                            management · Problem solving · Adaptability ·
+                            Responsibility · Patience
+                          </p>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
