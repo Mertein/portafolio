@@ -6,6 +6,7 @@ export default {
 			backgroundImage: {
 				'window-wallpaper': "url('/bg.webp')",
 				'chessboard': "url('/chessboard.png')",
+				'logos': "url('/logos.png')",
 				'skillsImg' : "url('/skills1.bmp')",
 			},
 			backgroundColor: {

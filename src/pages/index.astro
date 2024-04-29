@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Work from "../components/work.astro";
 import Skills from "../components/skills.astro";
+import About from "../components/about.astro";
 ---
 
 <Layout title="Martin Aguayo" />
@@ -40,7 +41,7 @@ import Skills from "../components/skills.astro";
             </a>
           </li>
           <li id="section">
-            <a href="/" class="space-y-1.5">
+            <a href="#/about" class="space-y-1.5">
               <img src="/about-w98.png" alt="Work" class="h-12 w-12 m-auto" />
               <h2
                 class="text-sm text-center hover:bg-blue-900 hover:text-white"
@@ -82,7 +83,7 @@ import Skills from "../components/skills.astro";
     <Skills />
 
     <!-- About Me -->
-
+    <About />
     <!-- Contact -->
 
     <!--  -->
@@ -96,7 +97,7 @@ import Skills from "../components/skills.astro";
     const sections = document.querySelectorAll("#section a");
     const url = window.location.hash;
     if (url === "") {
-      document.getElementById("container-projects").style.display = "block";
+      document.getElementById("work").style.display = "block";
     }
 
     sections.forEach((section) => {
@@ -106,15 +107,33 @@ import Skills from "../components/skills.astro";
         const href = section.getAttribute("href"); // Obtiene la ruta del enlace
 
         // Oculta todos los componentes
-        document.querySelectorAll(".component").forEach((component) => {
+        document.querySelectorAll(".component").forEach((component: any) => {
           component.style.display = "none";
+          if (href === "#/works") {
+            component.getAttribute("id") === "work"
+              ? (component.style.display = "block")
+              : null;
+            // document.getElementById("window").style.display = "block";
+          } else if (href === "#/skills") {
+            component.getAttribute("id") === "skill"
+              ? (component.style.display = "block")
+              : null;
+          } else if (href === "#/about") {
+            component.getAttribute("id") === "about"
+              ? (component.style.display = "block")
+              : null;
+          } else if (href === "#/contact") {
+            component.getAttribute("id") === "contact"
+              ? (component.style.display = "block")
+              : null;
+          } else if (href === "#/cv") {
+            component.getAttribute("id") === "cv"
+              ? (component.style.display = "block")
+              : null;
+          }
         });
         // Muestra el componente correspondiente según la ruta del enlace
-        if (href === "#/works") {
-          document.getElementById("container-projects").style.display = "block";
-        } else if (href === "#/skills") {
-          document.getElementById("skills").style.display = "block";
-        }
+
         // Agrega más condiciones según las rutas de los enlaces si es necesario
       });
     });

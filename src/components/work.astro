@@ -2,215 +2,177 @@
 import { Image } from "astro:assets";
 import { projectsWork } from "../../data/projects";
 import ProjectsSection from "./project-section.astro";
+import Window from "../components/window.astro";
 ---
 
-<div
-  id="container-projects"
-  class="bg-blue-900 h-[100%] w-[90%] m-7 border-solid border-2 text-white max-w-screen-2 component"
-  style="display: none"
->
-  <div class="flex">
-    <h2 class="text-xs ml-2 items-center flex">Work</h2>
-    <div class="flex ml-auto mr-0.5 cursor-pointer items-center">
-      <button
-        id="btnQuestion"
-        class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
-      >
-        <Image
-          src="/question-icon.png"
-          alt="Question Icon"
-          width="50"
-          height="50"
-          loading="lazy"
-        /></button
-      >
-      <button
-        id="btnClose"
-        class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
-      >
-        <Image
-          src="/close-icon.png"
-          alt="Close Icon"
-          width="50"
-          height="50"
-          loading="lazy"
+<div class="component w-full" style="display: none" id="work">
+  <Window label="Work">
+    <div class=`flex flex-row h-full w-full`>
+      <!-- Left Side Folders -->
+      <div class="flex flex-col gap-y-8 ml-4 mt-4 text-black w-[40%]">
+        <ProjectsSection
+          folderImage="/folder-work.png"
+          projects={projectsWork}
+          label={"Work Projects Recent"}
         />
-      </button>
-    </div>
-  </div>
-  <div
-    class="h-full p-3 pr-4 pb-8 max-sm:pb-10 bg-[silver] border border-solid shadow-md border-black"
-  >
-    <div class="border-2 border-solid shadow-md border-black bg-white h-[94%]">
-      <div class="flex flex-row h-full w-full">
-        <!-- Left Side Folders -->
-        <div class="flex flex-col gap-y-8 ml-4 mt-4 text-black w-[40%]">
-          <ProjectsSection
-            folderImage="/folder-work.png"
-            projects={projectsWork}
-            label={"Work Projects Recent"}
-          />
 
-          <ProjectsSection
-            folderImage="/folder-personal.png"
-            projects={projectsWork}
-            label={"Personal projects"}
-          />
+        <ProjectsSection
+          folderImage="/folder-personal.png"
+          projects={projectsWork}
+          label={"Personal projects"}
+        />
 
-          <ProjectsSection
-            projects={projectsWork}
-            label={"Other Project"}
-            folderImage="/folder-other.png"
-          />
-        </div>
+        <ProjectsSection
+          projects={projectsWork}
+          label={"Other Project"}
+          folderImage="/folder-other.png"
+        />
+      </div>
 
-        <!-- Right Side Content -->
-        <div class="w-0 md:w-[60%] relative flex flex-col">
-          <div class="h-3/5 bg-gradient-to-b from-emerald-200 to-pink-200">
-          </div>
-          <div class="bg-chessboard bg-bottom bg-cover h-[500px] w-full">
-            <section
-              id="dialog"
-              class="absolute top-0 right-0 left-0 bottom-9 m-auto xl:w-[62%] w-[90%] bg-sky-200 h-[88%] border border-solid border-white"
+      <!-- Right Side Content -->
+      <div class="w-0 md:w-[60%] relative flex flex-col">
+        <div class="h-3/5 bg-gradient-to-b from-emerald-200 to-pink-200"></div>
+        <div class="bg-chessboard bg-bottom bg-cover h-[500px] w-full">
+          <section
+            id="dialog"
+            class="absolute top-0 right-0 left-0 bottom-9 m-auto xl:w-[62%] w-[90%] bg-sky-200 h-[88%] border border-solid border-white"
+          >
+            <div
+              class="hidden md:flex items-center border p-4 border-solid border-[silver] h-0 bg-[#008080]"
             >
-              <div
-                class="hidden md:flex items-center border p-4 border-solid border-[silver] h-0 bg-[#008080]"
-              >
-                <span class="text-xs">Project Name</span>
-                <div class="flex ml-auto -mr-3.5 cursor-pointer">
-                  <button
-                    id="btnMaximize"
-                    class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
-                  >
-                    <Image
-                      src="/maximize-icon.png"
-                      alt="Question Icon"
-                      width="50"
-                      height="50"
-                      loading="lazy"
-                    /></button
-                  >
-                  <button
-                    id="btnCloseProject"
-                    class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
-                  >
-                    <Image
-                      src="/close-icon.png"
-                      alt="Close Icon"
-                      width="50"
-                      height="50"
-                      loading="lazy"
-                    />
-                  </button>
-                </div>
+              <span class="text-xs">Project Name</span>
+              <div class="flex ml-auto -mr-3.5 cursor-pointer">
+                <button
+                  id="btnMaximize"
+                  class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
+                >
+                  <Image
+                    src="/maximize-icon.png"
+                    alt="Question Icon"
+                    width="50"
+                    height="50"
+                    loading="lazy"
+                  /></button
+                >
+                <button
+                  id="btnCloseProject"
+                  class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
+                >
+                  <Image
+                    src="/close-icon.png"
+                    alt="Close Icon"
+                    width="50"
+                    height="50"
+                    loading="lazy"
+                  />
+                </button>
               </div>
-              <div class="h-full w-full items-center bg-indigo-200">
-                <div class="flex flex-col items-center h-full bg-[silver]">
-                  <div class="h-[50%] w-[85%] bg-yellow-500 relative mt-4">
-                    <Image
-                      id="projectImage"
-                      src="/book.png"
-                      alt="Project Image"
-                      width={200}
-                      height={400}
-                      class="mx-auto bg-sky-900 absolute object-cover size-full"
-                    />
-                    <div class="absolute bottom-0 right-1 z-10 m-auto">
-                      <button id="prevImage" disabled={true}>
-                        <Image
-                          id="previousImg"
-                          src="/disabled-arrow-key.png"
-                          alt="Previous Image"
-                          width={30}
-                          height={30}
-                          loading="lazy"
-                        />
-                      </button>
-                      <button id="nextImage" disabled={false}>
-                        <Image
-                          id="nextImg"
-                          src="/arrow-key.png"
-                          alt="Next Image"
-                          width={30}
-                          height={30}
-                          loading="lazy"
-                          class="transform rotate-180"
-                        />
-                      </button>
-                    </div>
+            </div>
+            <div class="h-full w-full items-center bg-indigo-200">
+              <div class="flex flex-col items-center h-full bg-[silver]">
+                <div class="h-[50%] w-[85%] bg-yellow-500 relative mt-4">
+                  <Image
+                    id="projectImage"
+                    src="/book.png"
+                    alt="Project Image"
+                    width={200}
+                    height={400}
+                    class="mx-auto bg-sky-900 absolute object-cover size-full"
+                  />
+                  <div class="absolute bottom-0 right-1 z-10 m-auto">
+                    <button id="prevImage" disabled={true}>
+                      <Image
+                        id="previousImg"
+                        src="/disabled-arrow-key.png"
+                        alt="Previous Image"
+                        width={30}
+                        height={30}
+                        loading="lazy"
+                      />
+                    </button>
+                    <button id="nextImage" disabled={false}>
+                      <Image
+                        id="nextImg"
+                        src="/arrow-key.png"
+                        alt="Next Image"
+                        width={30}
+                        height={30}
+                        loading="lazy"
+                        class="transform rotate-180"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="hidden md:flex flex-col m-4 text-black overflow-y-auto w-[85%] h-[30%]"
+                >
+                  <div class="flex text-sm items-center">
+                    <button
+                      id="btnOverview"
+                      class="rounded-md !rounded-b-none px-4 py-1.5 hover:scale-105 bg-[#d8d8d8]"
+                    >
+                      Overview
+                    </button>
+                    <button
+                      id="btnWhatIDid"
+                      class="rounded-md !rounded-b-none px-4 py-1.5 hover:scale-105 bg-[#d8d8d8]"
+                    >
+                      What I Did
+                    </button>
                   </div>
                   <div
-                    class="hidden md:flex flex-col m-4 text-black overflow-y-auto w-[85%] h-[30%]"
+                    class="text-xs text-wrap flex flex-col gap-y-8 bg-[#d8d8d8] p-3 rounded-md !rounded-t-none shadow-md"
                   >
-                    <div class="flex text-sm items-center">
-                      <button
-                        id="btnOverview"
-                        class="rounded-md !rounded-b-none px-4 py-1.5 hover:scale-105 bg-[#d8d8d8]"
-                      >
-                        Overview
-                      </button>
-                      <button
-                        id="btnWhatIDid"
-                        class="rounded-md !rounded-b-none px-4 py-1.5 hover:scale-105 bg-[#d8d8d8]"
-                      >
-                        What I Did
-                      </button>
+                    <div id="overviewContent" style="display: block">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Ad possimus tempora molestias quibusdam, tenetur at
+                      doloribus dolores, consequatur natus modi quis similique,
+                      quo optio expedita quos neque dolorum quisquam quidem!
                     </div>
-                    <div
-                      class="text-xs text-wrap flex flex-col gap-y-8 bg-[#d8d8d8] p-3 rounded-md !rounded-t-none shadow-md"
-                    >
-                      <div id="overviewContent" style="display: block">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Ad possimus tempora molestias quibusdam, tenetur at
-                        doloribus dolores, consequatur natus modi quis
-                        similique, quo optio expedita quos neque dolorum
-                        quisquam quidem!
-                      </div>
-                      <div id="whatIDidContent" style="display: none">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      </div>
+                    <div id="whatIDidContent" style="display: none">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </div>
                   </div>
-                  <button
-                    class="text-xs relative mt-10 w-auto appearance-none border-t-[2px] border-r-[2px] border-b-[2px] border-l-[2px] border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] px-2 py-1 leading-[20px] tracking-wider text-black"
-                  >
-                    <a href="#">Visit</a>
-                    <span
-                      class="pointer-events-none absolute -inset-[2px] border-[1px] border-solid border-black"
-                    ></span>
-                  </button>
                 </div>
+                <button
+                  class="text-xs relative mt-10 w-auto appearance-none border-t-[2px] border-r-[2px] border-b-[2px] border-l-[2px] border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] px-2 py-1 leading-[20px] tracking-wider text-black"
+                >
+                  <a href="#">Visit</a>
+                  <span
+                    class="pointer-events-none absolute -inset-[2px] border-[1px] border-solid border-black"
+                  ></span>
+                </button>
               </div>
-            </section>
-            <div class="hidden md:flex flex-col items-center">
-              <!-- Navigations Tips -->
-              <div
-                id="navigationsTips"
-                class="bg-teal-600 border border-solid flex flex-col mx-auto rounded-sm shadow-md"
-              >
-                <div class="flex items-center">
-                  <p class="text-xs ml-2 text-start text-white">
-                    Some navigations tips
+            </div>
+          </section>
+          <div class="hidden md:flex flex-col items-center">
+            <!-- Navigations Tips -->
+            <div
+              id="navigationsTips"
+              class="bg-teal-600 border border-solid flex flex-col mx-auto rounded-sm shadow-md"
+            >
+              <div class="flex items-center">
+                <p class="text-xs ml-2 text-start text-white">
+                  Some navigations tips
+                </p>
+                <a id="closeNavigationTips" role="button" class="ml-auto mr-2"
+                  >X</a
+                >
+              </div>
+              <div class="bg-[silver] border-solid p-3 text-sm flex flex-col">
+                <div class="flex gap-10 items-center justify-center">
+                  <img src="/book.png" class="h-8 w-8" />
+                  <p class="flex flex-1 text-black">
+                    Click a project to see the details here. You can navigate
+                    trough elements draggin the mouse.
                   </p>
-                  <a id="closeNavigationTips" role="button" class="ml-auto mr-2"
-                    >X</a
-                  >
                 </div>
-                <div class="bg-[silver] border-solid p-3 text-sm flex flex-col">
-                  <div class="flex gap-10 items-center justify-center">
-                    <img src="/book.png" class="h-8 w-8" />
-                    <p class="flex flex-1 text-black">
-                      Click a project to see the details here. You can navigate
-                      trough elements draggin the mouse.
-                    </p>
-                  </div>
-                  <div class="mx-auto mt-6">
-                    <button
-                      id="btnGoIt"
-                      class="w-auto appearance-none border-[2px] border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] px-2 py-1 leading-[20px] tracking-wider text-black"
-                      >Go It!</button
-                    >
-                  </div>
+                <div class="mx-auto mt-6">
+                  <button
+                    id="btnGoIt"
+                    class="w-auto appearance-none border-[2px] border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] px-2 py-1 leading-[20px] tracking-wider text-black"
+                    >Go It!</button
+                  >
                 </div>
               </div>
             </div>
@@ -218,7 +180,7 @@ import ProjectsSection from "./project-section.astro";
         </div>
       </div>
     </div>
-  </div>
+  </Window>
 </div>
 
 <script>
@@ -232,6 +194,7 @@ import ProjectsSection from "./project-section.astro";
     let dialog = document.getElementById("dialog");
     let btnOverview = document.getElementById("btnOverview");
     let btnWhatIDid = document.getElementById("btnWhatIDid");
+    let btnContainerProjects = document.getElementById("container-projects");
 
     let closeNavigationTips = document.getElementById("closeNavigationTips");
     closeNavigationTips?.addEventListener("click", function (event) {
@@ -258,11 +221,21 @@ import ProjectsSection from "./project-section.astro";
     btnQuestion?.addEventListener("click", function (event) {
       event.preventDefault();
     });
+
     btnClose?.addEventListener("click", function (event) {
       event.preventDefault();
       let containerProjects = document.getElementById("container-projects");
-      containerProjects ? containerProjects.remove() : "";
+      containerProjects
+        ? containerProjects.setAttribute("style", "display: none")
+        : "";
     });
+
+    // btnContainerProjects?.addEventListener("click", function (e) {
+    //   e.preventDefault();
+    //   document.querySelectorAll(".component").forEach((component: any) => {
+    //     component.style.display = "none";
+    //   });
+    // });
 
     btnOverview?.addEventListener("click", function (event) {
       event.preventDefault();

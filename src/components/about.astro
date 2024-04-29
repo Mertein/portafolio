@@ -1,0 +1,299 @@
+---
+import { Image } from "astro:assets";
+import Window from "./window.astro";
+import LinkedinIcon from "../../public/svg/linkedin.svg";
+import GithubIcon from "../../public/svg/github.svg";
+---
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+  .font-pressStart2P {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+</style>
+
+<div class="component w-full" style="display: none" id="about">
+  <Window label="About">
+    <div
+      class="bg-logos h-full w-full bg-[length:360px] bg-repeat bg-stone-900"
+    >
+      <!-- title and subt -->
+      <div
+        class="relative pt-10 flex flex-col items-center justify-center max-lg:pt-5"
+      >
+        <div class="relative h-[5.313rem] w-[45rem] max-lg:w-[25rem]">
+          <h1
+            class="absolute z-30 inline-block transform stroke-black stroke-1 font-pressStart2P text-5xl text-white max-lg:text-3x max-lg:text-3xl"
+          >
+            <div class="lg:flex hidden opacity-100">
+              <span style="opacity: 1; transform: none;">
+                {"<"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"M"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"a"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"r"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"t"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"i"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"n"}
+              </span>
+              <span style="opacity: 1; transform: none;"> &nbsp; </span>
+              <span style="opacity: 1; transform: none;">
+                {"A"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"g"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"u"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"a"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"y"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"o"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {">"}
+              </span>
+            </div>
+          </h1>
+          <span
+            class="absolute z-20 transform stroke-black stroke-1 font-pressStart2P text-5xl text-pink-500 max-lg:text-3xl"
+          >
+            <div class="lg:flex hidden opacity-100">
+              <span style="opacity: 1; transform: none;">
+                {"<"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"M"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"a"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"r"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"t"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"i"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"n"}
+              </span>
+              <span style="opacity: 1; transform: none;"> &nbsp; </span>
+              <span style="opacity: 1; transform: none;">
+                {"A"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"g"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"u"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"a"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"y"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"o"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {">"}
+              </span>
+            </div>
+          </span>
+          <span
+            class="absolute z-20 transform stroke-black stroke-1 font-pressStart2P text-5xl text-pink-500 max-lg:text-3xl"
+          >
+            <div class="lg:flex hidden opacity-100">
+              <span style="opacity: 1; transform: none;">
+                {"<"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"M"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"a"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"r"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"t"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"i"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"n"}
+              </span>
+              <span style="opacity: 1; transform: none;"> &nbsp; </span>
+              <span style="opacity: 1; transform: none;">
+                {"A"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"g"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"u"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"a"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"y"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {"o"}
+              </span>
+              <span style="opacity: 1; transform: none;">
+                {">"}
+              </span>
+            </div>
+            <p class="lg:hidden flex items-center justify-center text-center">
+              {"<Martin Aguayo>"}
+            </p>
+          </span>
+        </div>
+        <div
+          class="z-10 px-1 text-center font-pressStart2P text-lg text-white max-lg:mt-0 max-lg:text-sm"
+        >
+          Full Stack Developer
+        </div>
+      </div>
+
+      <!-- content -->
+      <div
+        class="hidden md:flex md:flex-row h-full w-full items-center justify-center"
+      >
+        <!--Habbo Gif -->
+        <div class="flex items-center justify-start">
+          <Image
+            src="/habbo-dance.gif"
+            alt="Habbo Gif"
+            width={400}
+            height={200}
+          />
+        </div>
+
+        <!-- About me -->
+        <div
+          class="bg-zinc-900 text-white w-[50%] h-fit p-4 text-wrap text-sm max-lg:p-2 max-lg:text-xs ord"
+        >
+          <p class="font-pressStart2P">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et,
+            explicabo rerum dolores, quaerat molestiae dignissimos ratione eius
+            beatae qui, culpa ipsum sequi exercitationem asperiores magnam hic
+            tempora a tempore perferendis?
+          </p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex flex-col gap-4">
+          <a
+            href="https://www.linkedin.com/in/mertein/"
+            class="flex flex-row items-center"
+          >
+            <Image
+              src={LinkedinIcon}
+              alt="Linkedin Icon"
+              width={30}
+              height={30}
+              class="bg-white"
+            />
+          </a>
+
+          <a
+            href="https://www.github.com/mertein"
+            class="flex flex-row items-center"
+          >
+            <Image
+              src={GithubIcon}
+              alt="Github Icon"
+              width={30}
+              height={30}
+              class="bg-white"
+            />
+          </a>
+        </div>
+      </div>
+
+      <!-- content Responsive -->
+      <div class="flex flex-col sm:hidden sm:flex-col">
+        <!-- About me -->
+        <div
+          class="bg-zinc-900 text-white w-[50%] h-fit p-4 text-wrap text-sm max-lg:p-2 max-lg:text-xs"
+        >
+          <p class="font-pressStart2P">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et,
+            explicabo rerum dolores, quaerat molestiae dignissimos ratione eius
+            beatae qui, culpa ipsum sequi exercitationem asperiores magnam hic
+            tempora a tempore perferendis?
+          </p>
+        </div>
+
+        <div class="flex flex-row h-full w-full items-center justify-center">
+          <!--Habbo Gif -->
+          <div class="flex items-center justify-start">
+            <Image
+              src="/habbo-dance.gif"
+              alt="Habbo Gif"
+              width={200}
+              height={200}
+            />
+          </div>
+          <!-- Buttons -->
+          <div class="flex flex-col gap-4">
+            <a
+              href="https://www.linkedin.com/in/mertein/"
+              class="flex flex-row items-center"
+            >
+              <Image
+                src={LinkedinIcon}
+                alt="Linkedin Icon"
+                width={30}
+                height={30}
+                class="bg-white"
+              />
+            </a>
+
+            <a
+              href="https://www.github.com/mertein"
+              class="flex flex-row items-center"
+            >
+              <Image
+                src={GithubIcon}
+                alt="Github Icon"
+                width={30}
+                height={30}
+                class="bg-white"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Window>
+</div>
+
+<script is:inline></script>

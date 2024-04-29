@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+
+<div
+  class=`bg-blue-900 h-[100%] w-[90%] m-7 border-solid border-2 text-white max-w-screen-2`
+>
+  <div class="flex">
+    <h2 class="text-xs ml-2 items-center flex">{label}</h2>
+    <div class="flex ml-auto mr-0.5 cursor-pointer items-center">
+      <button
+        id="btnQuestion"
+        class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
+      >
+        <Image
+          src="/question-icon.png"
+          alt="Question Icon"
+          width="50"
+          height="50"
+          loading="lazy"
+        /></button
+      >
+      <button
+        id="btnClose"
+        class="relative z-10 float-right block size-4 appearance-none border-t-2 border-r-2 border-b-2 border-l-2 border-solid border-b-[#404040] border-r-[#404040] border-t-[#ededed] border-l-[#ededed] bg-[silver] font-bold tracking-wider text-black max-sm:h-[1.4rem] max-sm:w-[1.4rem] mr-1"
+      >
+        <Image
+          src="/close-icon.png"
+          alt="Close Icon"
+          width="50"
+          height="50"
+          loading="lazy"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    class="h-full p-3 pr-4 pb-8 max-sm:pb-10 bg-[silver] border border-solid shadow-md border-black"
+  >
+    <div class="border-2 border-solid shadow-md border-black bg-white h-[94%]">
+      <slot />
+    </div>
+  </div>
+</div>
